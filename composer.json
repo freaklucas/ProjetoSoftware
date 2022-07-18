@@ -1,0 +1,17 @@
+{
+	"name": "agendaAluno",
+	"require": {
+		"php": ">= 7.0"
+	},
+	"authors": [
+		{
+			"name": "Lucas Oliveira"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "App/",
+			"MF\\": "vendor/MF/"
+		}
+	}
+}
