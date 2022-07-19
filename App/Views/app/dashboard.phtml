@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg menu">
 	<div class="container">
 	  <div class="navbar-nav">
-	  	<a class="menuItem" href="/dashboard">
+	  	<a class="menuItem m-2" href="/dashboard">
 	  		Home
 	  	</a>
+	  	<a class="menuItem m-2" href="/sair">
 
-	  	<a class="menuItem" href="/sair">
 	  		Sair
 	  	</a>
 	  </div>
-          <h1>📅 AgendaAluno</h1>
+          <h1 class="text-primary">📅 AgendaAluno</h1>
       <a href=""></a>
 	</div>
 </nav>
@@ -28,7 +28,7 @@
 					
 					<div class="row mt-2 mb-2">
 						<div class="col mb-2">
-							<span class="perfilPainelNome">Nome do Usuário</span>
+							<span class="perfilPainelNome text-primary">Nome do Usuário</span>
 						</div>
 					</div>
 
@@ -54,11 +54,11 @@
 		<div class="col-md-6">
 			<div class="row mb-2">
 				<div class="col tweetBox">
-					<form>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<form method="post" action="/disciplina">
+						<textarea class="form-control" name="disciplina" id="exampleFormControlTextarea1" rows="3"></textarea>
 						
 						<div class="col mt-2 d-flex justify-content-end">
-							<button type="submit" class="btn btn-primary">aaaa</button>
+							<button type="submit" class="btn btn-primary">Publicar</button>
 						</div>
 
 					</form>
