@@ -50,6 +50,25 @@ class Route extends Bootstrap {
 			'action' => 'disciplina'
 		);
 
+		$routes['avaliacao'] = array(
+			'route' => '/avaliacao',
+			'controller' => 'AppController',
+			'action' => 'avaliacao'
+		);
+
+		$routes['professor'] = array(
+			'route' => '/professor',
+			'controller' => 'AppController',
+			'action' => 'professor'
+		);
+		
+		$routes['anotacao'] = array(
+			'route' => '/anotacao',
+			'controller' => 'AppController',
+			'action' => 'anotacao'
+		);
+		
+
 
 		$this->setRoutes($routes);
 	}

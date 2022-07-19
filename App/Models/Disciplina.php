@@ -1,6 +1,7 @@
 <?php
  
     namespace App\Models;
+
     use MF\Model\Model;
 
     class Disciplina extends Model {
@@ -8,16 +9,14 @@
         private $id;
         private $id_usuario;
         private $nome;
-        private $professor;
-        private $anotacoes;
-        private $notas;
-        
-        public function __set($atributo, $valor) {
-            $this->$atributo = $valor;
-        }
-        
+        private $data;
+
         public function __get($atributo) {
             return $this->$atributo;
+        }
+
+        public function __set($atributo, $valor) {
+            $this->$atributo = $valor;
         }
         
         // public function __construct() {
@@ -26,13 +25,10 @@
 
         //salvar disciplina
         public function salvar() {
-            $query = "INSERT INTO disciplinas (id_usuario, nome, professor, anotacoes, notas) VALUES (:id_usuario, :nome, :professor, :anotacoes, :notas)";
+            $query = "INSERT INTO disciplinas (id_usuario, disciplina) VALUES( :id_usuario, :disciplina)";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
-            $stmt->bindValue(':nome', $this->__get('nome'));
-            $stmt->bindValue(':professor', $this->__get('professor'));
-            $stmt->bindValue(':anotacoes', $this->__get('anotacoes'));
-            $stmt->bindValue(':notas', $this->__get('notas'));
+            $stmt->bindValue(':disciplina', $this->__get('disciplina'));
             $stmt->execute();
             
             return $this;
