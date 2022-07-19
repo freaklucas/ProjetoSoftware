@@ -9,11 +9,23 @@ use MF\Model\Container;
 class IndexController extends Action {
 
 	public function index() {
-
+		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
 		$this->render('index');
 	}
 
 	public function inscreverse() {
+		
+			$this->usuario = array(
+				'nome' => '',
+				'email' => '',
+				'senha' => ''
+			);
+			$this->view->erroCadastro = true;
+			$this->render('inscreverse');
+		
+
+		$this->view->erroCadastro = false;
+
 		$this->render('inscreverse');
 	}
 
@@ -24,17 +36,19 @@ class IndexController extends Action {
 		$usuario->__set('email', $_POST['email']);
 		$usuario->__set('senha', md5($_POST['senha']));
 
-		if ($usuario->validarCadastro()) {
-			if(count($usuario->getUsuarioPorEmail()) == 0 ) {
+		if ($usuario->validarCadastro() && count($usuario->getUsuarioPorEmail()) == 0 ) {
 				$usuario->salvar();
 
-				$this->render('cadastro');
-			}
-			
+				$this->render('cadastro');			
 
 		} else {
-			
-			$this->render('/');
+			$this->usuario = array(
+				'nome' => $_POST['nome'],
+				'email' => $_POST['email'],
+				'senha' => $_POST['senha']
+			);
+			$this->view->erroCadastro = true;
+			$this->render('inscreverse');
 		}
 
 		// $this->render('registrar');
